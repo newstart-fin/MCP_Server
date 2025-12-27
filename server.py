@@ -86,5 +86,4 @@ def get_contract_sla(customer_id: str):
         return {"content": [{"type": "text", "text": f"❌ Error: {str(e)}"}], "isError": True}
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))
-    mcp.run(host="0.0.0.0", port=port)
+    mcp.run()
