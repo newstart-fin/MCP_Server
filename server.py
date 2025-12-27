@@ -84,20 +84,9 @@ def get_contract_sla(customer_id: str):
     except Exception as e:
         return {"content": [{"type": "text", "text": f"❌ Error: {str(e)}"}], "isError": True}
 
-# ... (Keep all your existing Service and Tool code above this line) ...
+# ... (Your existing code) ...
 
 if __name__ == "__main__":
-    import os
-    
-    # Get the PORT from Render (defaults to 8000 if not set)
-    port = int(os.environ.get("PORT", 8000))
-    
-    # Run the server programmatically
-    # We pass 'proxy_headers' and 'forwarded_allow_ips' to fix the Render 421/Host errors
-    mcp.run(
-        transport="sse",
-        host="0.0.0.0",
-        port=port,
-        proxy_headers=True,
-        forwarded_allow_ips="*"
-    )
+    # Just run it. We will handle the Host/Port settings via the command line
+    # and Environment Variables, so we don't crash the script here.
+    mcp.run()
