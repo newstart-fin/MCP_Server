@@ -1,23 +1,16 @@
-# Use slim Python image
 FROM python:3.11-slim
 
-# Set a working directory
 WORKDIR /app
 
-# Prevent Python from writing pyc files and enable buffering
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Copy and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
 COPY . .
 
-# Expose a common HTTP port (adjust if your MCP server uses a different one)
+# Render injects PORT dynamically
 EXPOSE 8000
 
-# Default command: run the server script
-# Assumes server.py contains a proper entrypoint (mcp.run())
 CMD ["python", "server.py"]

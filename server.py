@@ -84,9 +84,6 @@ def get_contract_sla(customer_id: str):
     except Exception as e:
         return {"content": [{"type": "text", "text": f"❌ Error: {str(e)}"}], "isError": True}
 
-# ... (Your existing code) ...
-
 if __name__ == "__main__":
-    # Just run it. We will handle the Host/Port settings via the command line
-    # and Environment Variables, so we don't crash the script here.
-    mcp.run()
+    port = int(os.getenv("PORT", 8000))
+    mcp.run(host="0.0.0.0", port=port)
