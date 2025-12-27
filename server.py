@@ -33,8 +33,10 @@ class BillingService:
 service = BillingService()
 
 # Initialize FastMCP (FIX: Removed 'version="1.0.0"')
-mcp = FastMCP("Business-Client")
-
+mcp = FastMCP(
+    "Business-Client",
+    transport="http"   # 🔥 REQUIRED FOR RENDER
+)
 # --------------------------------
 # Tool 1: Get Customer Tier
 # --------------------------------
