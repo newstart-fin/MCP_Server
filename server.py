@@ -33,10 +33,7 @@ class BillingService:
 service = BillingService()
 
 # Initialize FastMCP (FIX: Removed 'version="1.0.0"')
-mcp = FastMCP(
-    "Business-Client",
-    transport="http"   # 🔥 REQUIRED FOR RENDER
-)
+mcp = FastMCP("Business-Client")
 # --------------------------------
 # Tool 1: Get Customer Tier
 # --------------------------------
@@ -88,4 +85,4 @@ def get_contract_sla(customer_id: str):
         return {"content": [{"type": "text", "text": f"❌ Error: {str(e)}"}], "isError": True}
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="http")
