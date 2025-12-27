@@ -1,5 +1,6 @@
 import json
 from mcp.server.fastmcp import FastMCP
+import os 
 
 # --------------------------------
 # Service Layer (Simulates external API/Logic)
