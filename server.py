@@ -31,8 +31,8 @@ class BillingService:
 # Initialize Service
 service = BillingService()
 
-# Initialize FastMCP
-mcp = FastMCP(name="Business-Client", version="1.0.0")
+# Initialize FastMCP (FIX: Removed 'version="1.0.0"')
+mcp = FastMCP("Business-Client")
 
 # --------------------------------
 # Tool 1: Get Customer Tier
